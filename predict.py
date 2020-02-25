@@ -50,7 +50,7 @@ def transform_df(test_df):
 def to_string(predicted_matches):
     final_string = "Kupon oluşturuluyor...\n"
     pred_list = []
-    for i in range(5, 14):
+    for i in range(13):
         match = str(predicted_matches["HomeTeam"][i]) + " - " + str(predicted_matches["AwayTeam"][i]) \
                 + " MS " + predicted_matches["1x2_Pred"][i] + "\n"
         pred_list.append(match)
