@@ -1,5 +1,5 @@
 # MacTahminBotu
-A bot that regularly provides soccer predictions. Currently on Telegram
+A bot that regularly provides soccer predictions. Currently on Telegram, still in development
 
 https://web.telegram.org/#/im?p=@MacTahminBot
 
