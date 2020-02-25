@@ -1,7 +1,8 @@
 import json
 import requests
+import time
 
-TOKEN = "your_token"
+TOKEN = "1043904819:AAHCwfF3Hsa1lqsO3rkLORdLi_RkEKLNVTY"
 URL = "https://api.telegram.org/bot{}/".format(TOKEN)
 
 
@@ -44,3 +45,16 @@ def broadcast(id_list, message):
     for user_id in id_list:
         url = URL + "sendMessage?text={}&chat_id={}".format(message, user_id)
         get_url(url)
+
+
+def send_message(user_id, message):
+    url = URL + "sendMessage?text={}&chat_id={}".format(message, user_id)
+    get_url(url)
+
+
+def show_bets(updates, text):
+    last_text = updates["result"][-1]["message"]["text"]
+    user_id = updates["result"][-1]["message"]["chat"]["id"]
+    if last_text == "/kupon" and len(updates["result"]) > 0:
+        send_message(user_id, text)
+    time.sleep(15)

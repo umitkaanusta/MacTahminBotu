@@ -3,9 +3,8 @@ import pandas as pd
 from scipy.stats import poisson
 import statsmodels.api as sm
 import statsmodels.formula.api as smf
-import schedule
-import time
 import bot
+import random
 
 
 def simulate_match(model, home, away, max_goals=10):
@@ -49,27 +48,25 @@ def transform_df(test_df):
 
 
 def to_string(predicted_matches):
-    final_string = "Yapay zeka modelimizin bu haftaki STSL kuponu:\n"
-    for i in range(5, 10):
+    final_string = "Kupon oluşturuluyor...\n"
+    pred_list = []
+    for i in range(9):
         match = str(predicted_matches["HomeTeam"][i]) + " - " + str(predicted_matches["AwayTeam"][i]) \
                 + " MS " + predicted_matches["1x2_Pred"][i] + "\n"
-        final_string += match
+        pred_list.append(match)
+    choice_list = random.sample(pred_list, k=4)
+    for string in choice_list:
+        final_string += string
+    final_string += "Kupon gelişini durdurmak için /kupon komutu dışında herhangi bir mesaj yazın."
     return final_string
-
-
-def execute_broadcast(message):
-    user_ids = bot.get_users(bot.get_updates())
-    bot.broadcast(user_ids, message)
 
 
 def main():
     on = True
-    text = to_string(predicted_transformed)
-    schedule.every().tuesday.at("00:40").do(execute_broadcast, text)
     while on:
-        schedule.run_pending()
-        time.sleep(60)
-        """user_ids = get_users(get_updates())
+        text = to_string(predicted_transformed)
+        bot.show_bets(bot.get_updates(), text)
+    """user_ids = get_users(get_updates())
         send = int(input("Broadcast (1)"))
         if send == 1:
             text = input("Text: ")
