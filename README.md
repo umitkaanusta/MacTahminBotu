@@ -5,4 +5,7 @@ https://web.telegram.org/#/im?p=@MacTahminBot
 
 Since I have not deployed the bot on a server, it will not work until I run the bot.
 
-<a href="https://ibb.co/4RSgFmN"><img src="https://i.ibb.co/jkwZ864/image.png" alt="image" border="0"></a>
+<a href="https://hizliresim.com/ny5NzB"><img src="https://i.hizliresim.com/ny5NzB.png"></a>
+
+
+<a href="https://hizliresim.com/vyQNkr"><img src="https://i.hizliresim.com/vyQNkr.jpg"></a>
