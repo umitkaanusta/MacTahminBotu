@@ -57,15 +57,18 @@ def to_string(predicted_matches):
     choice_list = random.sample(pred_list, k=4)
     for string in choice_list:
         final_string += string
-    final_string += "Kupon gelişini durdurmak için /kupon komutu dışında herhangi bir mesaj yazın."
+    final_string += "Tekrar kupon almak için 15 saniye bekleyin, ardından /kupon komutunu tekrar kullanın."
     return final_string
 
 
 def main():
     on = True
     while on:
+        initial_length = len(bot.get_updates()["result"])
         text = to_string(predicted_transformed)
-        bot.show_bets(bot.get_updates(), text)
+        if len(bot.get_updates()["result"]) > initial_length:
+            bot.show_bets(bot.get_updates(), text)
+            continue
     """user_ids = get_users(get_updates())
         send = int(input("Broadcast (1)"))
         if send == 1:
