@@ -1,7 +1,6 @@
 # MacTahminBotu
 A bot that provides soccer predictions. Currently on Telegram, still in development
 
-The bot will be deployed again with improvements.
 https://web.telegram.org/#/im?p=@MacTahminBot
 
 Tutorial(in Turkish): https://medium.com/zeitgeist-dergi/telegram-mac-tahmin-botu-e9121851f243
